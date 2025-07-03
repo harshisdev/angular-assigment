@@ -1,0 +1,53 @@
+<div class="p-4">
+  <h5 class="modal-title text-center">Add New Category</h5>
+  <form [formGroup]="AddCategoryForm" (ngSubmit)="onSubmit()">
+    <!-- Name Field -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Enter Name</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        placeholder="Enter Name"
+        formControlName="name"
+      />
+      <div
+        class="text-danger mt-1"
+        *ngIf="name.invalid && (name.dirty || name.touched)"
+      >
+        <small *ngIf="name.errors?.['required']">Name is required</small>
+      </div>
+    </div>
+
+    <!-- Image Field -->
+    <div class="mb-3">
+      <label for="image" class="form-label">Enter Image</label>
+      <input
+        type="text"
+        id="image"
+        class="form-control"
+        placeholder="Enter Image"
+        formControlName="image"
+      />
+      <div
+        class="text-danger mt-1"
+        *ngIf="image.invalid && (image.dirty || image.touched)"
+      >
+        <small *ngIf="image.errors?.['required']">
+          Image URL is required
+        </small>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="d-flex justify-content-center">
+      <button
+        class="btn btn-primary text-uppercase"
+        type="submit"
+        [disabled]="AddCategoryForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

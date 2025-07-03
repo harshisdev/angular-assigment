@@ -1,0 +1,33 @@
+<div class="p-4">
+  <h5 class="modal-title text-center">Delete Category</h5>
+  <form [formGroup]="DeleteCategoryForm" (ngSubmit)="onSubmit()">
+    <!-- Enter Field -->
+    <div class="mb-3">
+      <label for="image" class="form-label">Enter ID</label>
+      <input
+        type="text"
+        id="id"
+        class="form-control"
+        placeholder="Enter ID"
+        formControlName="id"
+      />
+      <div
+        class="text-danger mt-1"
+        *ngIf="id.invalid && (id.dirty || id.touched)"
+      >
+        <small *ngIf="id.errors?.['required']"> Id is required </small>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="d-flex justify-content-center">
+      <button
+        class="btn btn-primary text-uppercase"
+        type="submit"
+        [disabled]="DeleteCategoryForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

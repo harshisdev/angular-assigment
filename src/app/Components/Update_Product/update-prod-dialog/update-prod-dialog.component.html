@@ -1,0 +1,68 @@
+<h1 mat-dialog-title>Update Product</h1>
+
+<form [formGroup]="UpdateProductForm" (ngSubmit)="onSubmit()">
+  <mat-card appearance="outlined" class="matcard">
+    <mat-card-header class="login">Enter new Details</mat-card-header>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter title</mat-label>
+      <input
+        matInput
+        type="id"
+        placeholder="enter title"
+        formControlName="title"
+      />
+      @if(title.invalid &&( title.dirty || title.touched)){
+      @if(title.errors?.['required']){
+      <small class="colo"> title is required</small>
+      } }
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter description</mat-label>
+      <input
+        matInput
+        type="id"
+        placeholder="enter description"
+        formControlName="description"
+      />
+      @if(description.invalid &&( description.dirty || description.touched)){
+      @if(description.errors?.['required']){
+      <small class="colo"> description is required</small>
+      } }
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter price</mat-label>
+      <input
+        matInput
+        type="id"
+        placeholder="enter price"
+        formControlName="price"
+      />
+      @if(price.invalid &&( price.dirty || price.touched)){
+      @if(price.errors?.['required']){
+      <small class="colo"> price is required</small>
+      } }
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter image</mat-label>
+      <input
+        matInput
+        type="id"
+        placeholder="enter image"
+        formControlName="images"
+      />
+      @if(images.invalid &&( images.dirty || images.touched)){
+      @if(images.errors?.['required']){
+      <small class="colo"> image is required</small>
+      } }
+    </mat-form-field>
+  </mat-card>
+  <div mat-dialog-actions>
+    <button
+      mat-raised-button
+      type="submit"
+      [disabled]="UpdateProductForm.invalid"
+    >
+      Submit
+    </button>
+  </div>
+</form>

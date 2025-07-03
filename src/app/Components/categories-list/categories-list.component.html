@@ -1,0 +1,8 @@
+<mat-selection-list multiple="false">
+  <mat-list-option
+    [selected]="selectcat ? selectcat : false"
+    (click)="showProduct(idCat())"
+  >
+    {{ nameCat() }}
+  </mat-list-option>
+</mat-selection-list>

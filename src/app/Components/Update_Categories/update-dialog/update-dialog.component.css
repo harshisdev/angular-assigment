@@ -1,0 +1,18 @@
+.login {
+  font-size: larger;
+  margin-bottom: 10px;
+}
+.matcard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+  height: 500px;
+}
+.example-full-width {
+  width: 400px;
+}
+.colo {
+  color: red;
+}

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-capitalize text-center fs-4 mt-4">Your Cart</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <ng-container *ngFor="let item of cartingList; trackBy: trackByFn">
+        <div class="cart-item border p-3 mb-3 d-flex justify-content-between">
+          <div class="d-flex">
+            <img
+              [src]="item.image"
+              alt="Product Image"
+              width="80"
+              class="me-3"
+            />
+            <div>
+              <h5>{{ item.title }}</h5>
+              <p class="text-muted">${{ item.price }}</p>
+            </div>
+          </div>
+          <div>
+            <p>Quantity: {{ item.quantity }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row justify-content-between">
+    <div class="col-auto">
+      <button class="btn btn-primary" (click)="onPro()">
+        Back to products
+      </button>
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-success" (click)="onCheckout()">Checkout</button>
+    </div>
+  </div>
+</div>

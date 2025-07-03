@@ -1,0 +1,77 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow p-4" style="width: 100%; max-width: 400px">
+    <h3 class="text-center mb-4">Login</h3>
+
+    <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
+      <!-- Email Field -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter email"
+          formControlName="email"
+        />
+        <div
+          *ngIf="email.invalid && (email.dirty || email.touched)"
+          class="text-danger mt-1"
+        >
+          <small *ngIf="email.errors?.['required']">Email is required</small>
+          <small *ngIf="email.errors?.['email']">Enter a valid email</small>
+        </div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Enter password"
+          formControlName="password"
+        />
+        <div
+          *ngIf="password.invalid && (password.dirty || password.touched)"
+          class="text-danger mt-1"
+        >
+          <small *ngIf="password.errors?.['required']"
+            >Password is required</small
+          >
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="col-12 d-flex justify-content-center">
+        <button
+          type="submit"
+          class="btn btn-primary px-4"
+          [disabled]="registerform.invalid || showspinner"
+        >
+          <span *ngIf="!showspinner">Submit</span>
+          <span *ngIf="showspinner">
+            <span
+              class="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            Loading...
+          </span>
+        </button>
+      </div>
+    </form>
+
+    <!-- Navigation Link -->
+    <p class="text-center mt-3 mb-0 text-muted" style="font-size: 0.9rem">
+      Don't have an account?
+      <a href="#" (click)="taketoregister(); $event.preventDefault()"
+        >Register</a
+      >
+    </p>
+    <p class="text-center mt-3 mb-0 text-muted" style="font-size: 0.9rem">
+      Don't have an Forgot Password?
+      <a href="#" (click)="forgotpassword(); $event.preventDefault()">Forget</a>
+    </p>
+  </div>
+</div>

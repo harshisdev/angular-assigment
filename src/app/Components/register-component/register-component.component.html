@@ -1,0 +1,93 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow p-4" style="width: 100%; max-width: 400px">
+    <h3 class="text-center mb-4">Register Here</h3>
+
+    <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          formControlName="name"
+        />
+        <div
+          *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+          class="text-danger mt-1"
+        >
+          <small *ngIf="name?.errors?.['required']">Name is required</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          formControlName="email"
+        />
+        <div
+          *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+          class="text-danger mt-1"
+        >
+          <small *ngIf="name?.errors?.['required']">Name is required</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          formControlName="password"
+        />
+        <div
+          *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+          class="text-danger mt-1"
+        >
+          <small *ngIf="password?.errors?.['required']"
+            >Password is required</small
+          >
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="avatar" class="form-label">Avatar</label>
+        <input
+          type="text"
+          class="form-control"
+          id="avatar"
+          formControlName="avatar"
+        />
+        <div
+          *ngIf="avatar?.invalid && (avatar?.dirty || avatar?.touched)"
+          class="text-danger mt-1"
+        >
+          <small *ngIf="avatar?.errors?.['required']">Avatar is required</small>
+          <small *ngIf="avatar?.errors?.['pattern']"
+            >Must be a valid image URL (jpg, png, gif...)</small
+          >
+        </div>
+      </div>
+
+      <div class="col-12 d-flex justify-content-center">
+        <button
+          type="submit"
+          class="btn btn-primary px-4"
+          [disabled]="registerform.invalid || showspinner"
+        >
+          <span
+            *ngIf="showspinner"
+            class="spinner-border spinner-border-sm me-2"
+          ></span>
+          {{ showspinner ? "Registering..." : "Register" }}
+        </button>
+      </div>
+      <p class="text-center mt-3 mb-0 text-muted" style="font-size: 0.9rem">
+        Already have an account?
+        <a href="#" (click)="login(); $event.preventDefault()">Login</a>
+      </p>
+    </form>
+  </div>
+</div>

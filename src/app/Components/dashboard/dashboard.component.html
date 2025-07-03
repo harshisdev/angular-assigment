@@ -1,0 +1,92 @@
+<header class="navbar-light bg-light position-fixed w-100 z-2 top-0 shadow">
+  <div class="container">
+    <nav class="navbar">
+      <div class="row align-items-center w-100">
+        <div class="col-2">
+          <a class="navbar-brand text-uppercase">E-Commerce Store</a>
+        </div>
+        <div class="col-10 d-flex justify-content-end pe-0">
+          <div class="row">
+            <div class="col-auto d-flex align-items-center">
+              <a class="cart" routerLink="cart"
+                ><i class="bi bi-cart me-2"></i> CART {{ totalCartItems }}</a
+              >
+            </div>
+            <div class="col-auto d-flex align-items-center">
+              <div class="user-profile shadow">
+                <i class="bi bi-person-circle"></i>
+              </div>
+              <div class="ms-2">Harsh Kumar</div>
+            </div>
+            <div class="col-auto d-flex align-items-center pe-0">
+              <a style="cursor: pointer" class="cart" (click)="logout()">
+                <i class="bi bi-power me-1"></i> LOGOUT
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div style="min-height: calc(100vh - 80px)">
+  <div class="container" style="padding-top: 56px">
+    <div class="row align-items-center py-2">
+      <div class="col-2">
+        <h1 class="fs-4 pt-2 text-uppercase">Categories</h1>
+      </div>
+      <div class="col-10 d-flex justify-content-end">
+        <div>
+          <app-button-add (emitedValue)="onAdd($event)"></app-button-add>
+        </div>
+        <div class="ms-2">
+          <app-button-update
+            (emitedValue)="onUpdate($event)"
+          ></app-button-update>
+        </div>
+        <div class="ms-2">
+          <app-button-delete
+            (emitedValue)="onDelete($event)"
+          ></app-button-delete>
+        </div>
+        <div class="ms-2">
+          <app-add-product-button
+            [categoryLi]="categories"
+            (emitedValue)="AddNewProduct($event)"
+          ></app-add-product-button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div style="background-color: #b8c5ce; position: sticky; top: 56px">
+          @for(item of categories;track item.id){
+          <app-categories-list
+            [categoryList]="item"
+            [nameCat]="item.name"
+            [idCat]="item.id"
+            (emitid)="showProduct($event)"
+          ></app-categories-list>
+          }
+        </div>
+      </div>
+      <div class="col-8">
+        <app-product-list
+          [productList]="ProductList"
+          (emitededelete)="ondeletePro($event)"
+          (emitedupdateObj)="onupdate($event)"
+        ></app-product-list>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="py-3 bg-light-subtle shadow-lg mt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        &copy; 2025 E-Commerce Store. All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>

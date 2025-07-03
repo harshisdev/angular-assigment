@@ -1,0 +1,105 @@
+<div class="p-4">
+  <h5 class="modal-title text-center">Add New Product</h5>
+  <form [formGroup]="AddProductForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="CatId" class="form-label">Select Category</label>
+      <select class="form-select" id="CatId" formControlName="CatId">
+        <option value="" disabled selected>Select a category</option>
+        @for (c of cat; track c.id) {
+        <option [value]="c.id">{{ c.name }}</option>
+        }
+      </select>
+      <div
+        class="text-danger mt-1"
+        *ngIf="CatId?.invalid && (CatId?.dirty || CatId?.touched)"
+      >
+        <small *ngIf="CatId?.errors?.['required']">Category is required</small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="title" class="form-label">Enter Title</label>
+      <input
+        type="text"
+        id="title"
+        class="form-control"
+        placeholder="Enter Title"
+        formControlName="title"
+      />
+      <div
+        class="text-danger mt-1"
+        *ngIf="title?.invalid && (title?.dirty || title?.touched)"
+      >
+        <small *ngIf="title?.errors?.['required']"> Title is required</small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Enter Description</label>
+      <input
+        type="text"
+        id="description"
+        class="form-control"
+        placeholder="Enter Description"
+        formControlName="description"
+      />
+      <div
+        class="text-danger mt-1"
+        *ngIf="
+          description?.invalid && (description?.dirty || description?.touched)
+        "
+      >
+        <small *ngIf="description?.errors?.['required']">
+          Description is required</small
+        >
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Enter Image</label>
+      <input
+        type="text"
+        id="image"
+        class="form-control"
+        placeholder="Enter Image"
+        formControlName="image"
+      />
+      <div
+        class="text-danger mt-1"
+        *ngIf="image?.invalid && (image?.dirty || image?.touched)"
+      >
+        <small *ngIf="image?.errors?.['required']"> Image is required</small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Enter Price</label>
+      <input
+        type="text"
+        id="price"
+        class="form-control"
+        placeholder="Enter Price"
+        formControlName="price"
+      />
+      <div
+        class="text-danger mt-1"
+        *ngIf="price?.invalid && (price?.dirty || price?.touched)"
+      >
+        <small *ngIf="price?.errors?.['required']">
+          Description is required</small
+        >
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="d-flex justify-content-center">
+      <button
+        class="btn btn-primary text-uppercase"
+        type="submit"
+        [disabled]="AddProductForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
