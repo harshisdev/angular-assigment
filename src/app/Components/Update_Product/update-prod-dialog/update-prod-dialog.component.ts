@@ -28,7 +28,6 @@ import { NgIf } from '@angular/common';
     MatIconModule,
   ],
   templateUrl: './update-prod-dialog.component.html',
-  styleUrl: './update-prod-dialog.component.css',
 })
 export class UpdateProdDialogComponent {
   constructor(private dialogRef: MatDialogRef<UpdateProdDialogComponent>) {}

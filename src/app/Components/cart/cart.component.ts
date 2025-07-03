@@ -5,38 +5,41 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { cartlist } from '../../Interfaces/add';
 import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
+  standalone: true,
   imports: [NgIf, MatIconModule, MatDividerModule, MatButtonModule],
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css',
   encapsulation: ViewEncapsulation.None,
 })
 export class CartComponent implements OnInit, OnDestroy {
+  cartingList: any[] = [];
+
   constructor(
     private cart: SharedcartService,
     private toast: ToastrService,
     private router: Router
   ) {}
-  cartingList!: cartlist;
 
   ngOnInit(): void {
-    this.cartingList = this.cart.cartList;
+    this.cartingList = this.cart.getCartList(); // ✅ Use getter
   }
+
   ngOnDestroy(): void {
-    this.cart.cartList = [{}];
+    this.cart.clearCart(); // ✅ Use public method
   }
 
   onPro() {
     this.router.navigateByUrl('dashboard');
   }
+
   onCheckout() {
-    if (this.cartingList.length >= 2) {
-      this.toast.success('checkout successful', 'Success');
-      this.cartingList = [{}];
+    if (this.cartingList.length >= 1) {
+      this.toast.success('Checkout successful', 'Success');
+      this.cart.clearCart();
+      this.cartingList = [];
     } else {
       this.toast.warning('Cart is empty', 'Warning');
     }

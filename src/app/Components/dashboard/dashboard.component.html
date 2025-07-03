@@ -9,7 +9,10 @@
           <div class="row">
             <div class="col-auto d-flex align-items-center">
               <a class="cart" routerLink="cart"
-                ><i class="bi bi-cart me-2"></i> CART {{ totalCartItems }}</a
+                ><i class="bi bi-cart me-2"></i> CART
+                <span *ngIf="totalCartItems > 0">
+                  {{ totalCartItems }}
+                </span></a
               >
             </div>
             <div class="col-auto d-flex align-items-center">

@@ -9,7 +9,6 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-button-update',
   imports: [FormsModule, MatIconModule, MatDividerModule, MatButtonModule],
   templateUrl: './button-update.component.html',
-  styleUrl: './button-update.component.css',
 })
 export class ButtonUpdateComponent {
   constructor(private dialog: MatDialog) {}

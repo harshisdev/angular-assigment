@@ -93,8 +93,7 @@ export class ProductListComponent {
         price: product.price,
       };
       this.sharedcart.cartadding(obj);
-
-      this.totalCartItems += quantity;
+      // No need to increment totalCartItems manually here.
     }
   }
 }

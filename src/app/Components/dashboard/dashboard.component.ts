@@ -78,7 +78,7 @@ export class DashboardComponent implements OnInit {
 
   /// fetch all categories when this component first mount
   async ngOnInit(): Promise<void> {
-    this.cartService.totalItems$.subscribe((count) => {
+    this.cartService.totalCartItems$.subscribe((count) => {
       this.totalCartItems = count;
     });
 

@@ -15,11 +15,11 @@
   border: 10px solid #095504;
   border-radius: 50%;
   content: "";
-  height: calc(100% + 10px);
-  left: -5px;
+  height: calc(100% + 4px);
+  left: -2px;
   position: absolute;
-  top: -5px;
-  width: calc(100% + 10px);
+  top: -2px;
+  width: calc(100% + 4px);
   z-index: -1;
 }
 

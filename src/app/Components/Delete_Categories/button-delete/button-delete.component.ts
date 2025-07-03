@@ -9,7 +9,6 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-button-delete',
   imports: [FormsModule, MatButtonModule, MatDividerModule, MatIconModule],
   templateUrl: './button-delete.component.html',
-  styleUrl: './button-delete.component.css',
 })
 export class ButtonDeleteComponent {
   constructor(private dialog: MatDialog) {}
