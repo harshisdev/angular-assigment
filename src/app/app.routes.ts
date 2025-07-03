@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -17,6 +19,7 @@ export const routes: Routes = [
   },
   {
     path: 'dashboard',
+    canActivate: [AuthGuard],
     loadComponent: () =>
       import('./Components/dashboard/dashboard.component').then(
         (c) => c.DashboardComponent
@@ -24,6 +27,7 @@ export const routes: Routes = [
   },
   {
     path: 'dashboard/cart',
+    canActivate: [AuthGuard],
     loadComponent: () =>
       import('./Components/cart/cart.component').then((c) => c.CartComponent),
   },
@@ -32,6 +36,13 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./Components/forgot-password/forgot-password.component').then(
         (c) => c.ForgotPasswordComponent
+      ),
+  },
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./Components/not-found/not-found.component').then(
+        (m) => m.NotFoundComponent
       ),
   },
 ];

@@ -12,10 +12,12 @@ import {
   MatDialogModule,
   MatDialogRef,
 } from '@angular/material/dialog';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-update-prod-dialog',
   imports: [
+    NgIf,
     MatButtonModule,
     MatDialogModule,
     MatCardModule,

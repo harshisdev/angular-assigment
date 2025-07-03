@@ -65,7 +65,7 @@ export class LoginComponent {
       }
       const postdata = { ...this.registerform.value };
       const data = await this.login.login(postdata as loginUser);
-      localStorage.setItem('token', data.access_token);
+      sessionStorage.setItem('token', data.access_token);
       this.toast.success('Login Successful');
       this.router.navigateByUrl('dashboard');
     } catch (error) {

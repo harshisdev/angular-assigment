@@ -28,10 +28,10 @@
           formControlName="email"
         />
         <div
-          *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+          *ngIf="email?.invalid && (email?.dirty || email?.touched)"
           class="text-danger mt-1"
         >
-          <small *ngIf="name?.errors?.['required']">Name is required</small>
+          <small *ngIf="email?.errors?.['required']">Email is required</small>
         </div>
       </div>
 

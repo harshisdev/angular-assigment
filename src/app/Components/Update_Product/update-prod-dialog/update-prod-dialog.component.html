@@ -1,68 +1,92 @@
-<h1 mat-dialog-title>Update Product</h1>
+<div class="p-4">
+  <h5 class="modal-title text-center">Update Product</h5>
 
-<form [formGroup]="UpdateProductForm" (ngSubmit)="onSubmit()">
-  <mat-card appearance="outlined" class="matcard">
-    <mat-card-header class="login">Enter new Details</mat-card-header>
-    <mat-form-field class="example-full-width">
-      <mat-label>Enter title</mat-label>
+  <form [formGroup]="UpdateProductForm" (ngSubmit)="onSubmit()">
+    <!-- Title Field -->
+    <div class="mb-3">
+      <label for="title" class="form-label">Product Title</label>
       <input
-        matInput
-        type="id"
-        placeholder="enter title"
+        type="text"
+        id="title"
+        class="form-control"
+        placeholder="Enter Product Title"
         formControlName="title"
       />
-      @if(title.invalid &&( title.dirty || title.touched)){
-      @if(title.errors?.['required']){
-      <small class="colo"> title is required</small>
-      } }
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <mat-label>Enter description</mat-label>
+      <div
+        class="text-danger mt-1"
+        *ngIf="title?.invalid && (title?.dirty || title?.touched)"
+      >
+        <small *ngIf="title?.errors?.['required']">Title is required</small>
+      </div>
+    </div>
+
+    <!-- Description Field -->
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
       <input
-        matInput
-        type="id"
-        placeholder="enter description"
+        type="text"
+        id="description"
+        class="form-control"
+        placeholder="Enter Description"
         formControlName="description"
       />
-      @if(description.invalid &&( description.dirty || description.touched)){
-      @if(description.errors?.['required']){
-      <small class="colo"> description is required</small>
-      } }
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <mat-label>Enter price</mat-label>
+      <div
+        class="text-danger mt-1"
+        *ngIf="
+          description?.invalid && (description?.dirty || description?.touched)
+        "
+      >
+        <small *ngIf="description?.errors?.['required']"
+          >Description is required</small
+        >
+      </div>
+    </div>
+
+    <!-- Price Field -->
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
       <input
-        matInput
-        type="id"
-        placeholder="enter price"
+        type="number"
+        id="price"
+        class="form-control"
+        placeholder="Enter Price"
         formControlName="price"
       />
-      @if(price.invalid &&( price.dirty || price.touched)){
-      @if(price.errors?.['required']){
-      <small class="colo"> price is required</small>
-      } }
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <mat-label>Enter image</mat-label>
+      <div
+        class="text-danger mt-1"
+        *ngIf="price?.invalid && (price?.dirty || price?.touched)"
+      >
+        <small *ngIf="price?.errors?.['required']">Price is required</small>
+      </div>
+    </div>
+
+    <!-- Image URL Field -->
+    <div class="mb-3">
+      <label for="images" class="form-label">Image URL</label>
       <input
-        matInput
-        type="id"
-        placeholder="enter image"
+        type="text"
+        id="images"
+        class="form-control"
+        placeholder="Enter Image URL"
         formControlName="images"
       />
-      @if(images.invalid &&( images.dirty || images.touched)){
-      @if(images.errors?.['required']){
-      <small class="colo"> image is required</small>
-      } }
-    </mat-form-field>
-  </mat-card>
-  <div mat-dialog-actions>
-    <button
-      mat-raised-button
-      type="submit"
-      [disabled]="UpdateProductForm.invalid"
-    >
-      Submit
-    </button>
-  </div>
-</form>
+      <div
+        class="text-danger mt-1"
+        *ngIf="images?.invalid && (images?.dirty || images?.touched)"
+      >
+        <small *ngIf="images?.errors?.['required']">Image is required</small>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="d-flex justify-content-center">
+      <button
+        class="btn btn-primary text-uppercase"
+        type="submit"
+        [disabled]="UpdateProductForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
