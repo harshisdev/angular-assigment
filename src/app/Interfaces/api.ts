@@ -18,7 +18,7 @@ export interface Product {
   _typename: string;
   id: string;
   title: string;
-
+  images: string[];
   price: number;
 }
 export interface ApiProductResponse {
@@ -29,6 +29,7 @@ export interface ApiProductResponse {
       title: string;
       description: string;
       price: number;
+      images: string[];
     }
   ];
 }

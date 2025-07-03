@@ -16,7 +16,6 @@
               <div class="user-profile shadow">
                 <i class="bi bi-person-circle"></i>
               </div>
-              <div class="ms-2">Harsh Kumar</div>
             </div>
             <div class="col-auto d-flex align-items-center pe-0">
               <a style="cursor: pointer" class="cart" (click)="logout()">
@@ -58,7 +57,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-4">
+      <div class="col-3">
         <div style="background-color: #b8c5ce; position: sticky; top: 56px">
           @for(item of categories;track item.id){
           <app-categories-list
@@ -70,7 +69,7 @@
           }
         </div>
       </div>
-      <div class="col-8">
+      <div class="col-9">
         <app-product-list
           [productList]="ProductList"
           (emitededelete)="ondeletePro($event)"

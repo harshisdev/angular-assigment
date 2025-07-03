@@ -68,6 +68,11 @@ export class ProductListComponent {
     });
   }
 
+  onImageError(event: Event) {
+    (event.target as HTMLImageElement).src =
+      'https://via.placeholder.com/150x150?text=No+Image';
+  }
+
   increment(productId: string) {
     this.quantities[productId] = (this.quantities[productId] || 0) + 1;
   }
